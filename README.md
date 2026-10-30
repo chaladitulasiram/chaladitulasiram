@@ -1,7 +1,8 @@
 
 <!-- ================================================== -->
-<!-- CHALADI TULASI RAM | INTERACTIVE CLOUD PROFILE     -->
-<!-- APPLE VISION PRO × LINEAR × VERCEL                  -->
+<!-- CHALADI TULASI RAM | CLOUD ENGINEERING PORTFOLIO   -->
+<!-- APPLE VISION PRO GLASS × EDITORIAL                 -->
+<!-- AUTOMATED PROJECT DISCOVERY ENABLED                -->
 <!-- ================================================== -->
 
 <!-- ANIMATED HEADER -->
@@ -23,12 +24,14 @@
 <p align="center">
   <a href="#about">ABOUT</a> &nbsp;·&nbsp;
   <a href="#stack">TECH STACK</a> &nbsp;·&nbsp;
-  <a href="#projects">PROJECTS</a> &nbsp;·&nbsp;
+  <a href="#featured-projects">PROJECTS</a> &nbsp;·&nbsp;
+  <a href="#auto-projects">LATEST PROJECTS</a> &nbsp;·&nbsp;
   <a href="#journey">LEARNING</a> &nbsp;·&nbsp;
   <a href="#stats">STATISTICS</a> &nbsp;·&nbsp;
   <a href="#connect">CONNECT</a>
 </p>
 
+<!-- QUICK LINKS -->
 <p align="center">
   <a href="https://github.com/chaladitulasiram?tab=repositories">
     <img src="https://img.shields.io/badge/EXPLORE%20PROJECTS-17243A?style=for-the-badge&logo=github&logoColor=white"/>
@@ -48,37 +51,37 @@ I'm **Chaladi Tulasi Ram**, an Information Technology graduate
 interested in designing, building and understanding modern
 cloud infrastructure.
 
-My primary direction is Cloud Engineering, with a strong
-foundation in software development and application security.
+My primary direction is Cloud Engineering, supported by
+software development, automation and application security.
 
 <table>
 <tr>
-<td width="50%">
+<td width="50%" valign="top">
 
-**☁️ Cloud Engineering**
+### ☁️ Cloud Engineering
 
 AWS, cloud architecture, networking and infrastructure.
 
 </td>
-<td width="50%">
+<td width="50%" valign="top">
 
-**🐧 Systems Engineering**
+### 🐧 Systems Engineering
 
 Linux, operating systems, containers and automation.
 
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" valign="top">
 
-**🔐 Cloud Security**
+### 🔐 Cloud Security
 
 IAM, authentication, secure access and Zero Trust.
 
 </td>
-<td width="50%">
+<td width="50%" valign="top">
 
-**⚙️ Software Engineering**
+### ⚙️ Software Engineering
 
 Java, Python, Spring Boot and REST APIs.
 
@@ -100,7 +103,7 @@ Java, Python, Spring Boot and REST APIs.
 <summary><b>☁️ Cloud & Infrastructure</b></summary>
 <br/>
 <p>
-  <img src="https://skillicons.dev/icons?i=aws,docker,linux,bash,git,github&theme=dark"/>
+  <img src="https://skillicons.dev/icons?i=aws,docker,linux,bash,git,github&theme=dark" alt="Cloud and infrastructure technologies"/>
 </p>
 </details>
 
@@ -108,7 +111,7 @@ Java, Python, Spring Boot and REST APIs.
 <summary><b>💻 Programming Languages</b></summary>
 <br/>
 <p>
-  <img src="https://skillicons.dev/icons?i=python,java,typescript,javascript,postgres&theme=dark"/>
+  <img src="https://skillicons.dev/icons?i=python,java,typescript,javascript,postgres&theme=dark" alt="Programming languages"/>
 </p>
 </details>
 
@@ -116,7 +119,7 @@ Java, Python, Spring Boot and REST APIs.
 <summary><b>⚙️ Backend & Development</b></summary>
 <br/>
 <p>
-  <img src="https://skillicons.dev/icons?i=spring,react,nodejs,express,supabase,vite&theme=dark"/>
+  <img src="https://skillicons.dev/icons?i=spring,react,nodejs,express,supabase,vite&theme=dark" alt="Development technologies"/>
 </p>
 </details>
 
@@ -137,12 +140,12 @@ Java, Python, Spring Boot and REST APIs.
 
 ---
 
-<a id="projects"></a>
+<a id="featured-projects"></a>
 
 ## ◈ 03 — Featured Engineering Projects
 
 <p align="center">
-  <i>Practical projects. Real engineering concepts. Continuous improvement.</i>
+  <i>Selected projects demonstrating my engineering interests and practical experience.</i>
 </p>
 
 <table>
@@ -190,6 +193,7 @@ A web application for organising academic projects, users and workflows.
 
 </td>
 </tr>
+
 <tr>
 <td colspan="2">
 
@@ -218,24 +222,47 @@ An interactive quiz platform using AI to support quiz generation and learning ex
 
 ---
 
-<a id="journey"></a>
+<!-- ================================================== -->
+<!-- AUTOMATIC PROJECT DISCOVERY                         -->
+<!-- DO NOT REMOVE OR RENAME THESE MARKERS               -->
+<!-- ================================================== -->
 
-## ◈ 04 — My Cloud Engineering Journey
+<a id="auto-projects"></a>
+
+## ◈ 04 — Latest Engineering Projects
 
 <p align="center">
-  <img src="https://img.shields.io/badge/PRIMARY%20FOCUS-AWS%20CLOUD-1B2B42?style=for-the-badge&logo=amazonaws&logoColor=FFB84D"/>
+  <i>Automatically discovered and updated from my GitHub repositories.</i>
+</p>
+
+<!-- AUTO-PROJECTS:START -->
+
+<p align="center">
+  <i>New portfolio projects will automatically appear here.</i>
+</p>
+
+<!-- AUTO-PROJECTS:END -->
+
+---
+
+<a id="journey"></a>
+
+## ◈ 05 — My Cloud Engineering Journey
+
+<p align="center">
+  <img src="https://img.shields.io/badge/PRIMARY%20FOCUS-AWS%20CLOUD-1B2B42?style=for-the-badge&logo=amazonaws&logoColor=FFB84D" alt="AWS Cloud"/>
 </p>
 
 <details open>
 <summary><b>Phase 01 — Cloud Fundamentals</b></summary>
 <br/>
 
-- [ ] AWS global infrastructure
-- [ ] IAM and security policies
+- [ ] AWS Global Infrastructure
+- [ ] IAM and Security Policies
 - [ ] EC2 and S3
-- [ ] VPC and networking
+- [ ] VPC and Networking
 - [ ] Route 53 and DNS
-- [ ] Linux administration
+- [ ] Linux Administration
 
 </details>
 
@@ -243,12 +270,12 @@ An interactive quiz platform using AI to support quiz generation and learning ex
 <summary><b>Phase 02 — Cloud Engineering</b></summary>
 <br/>
 
-- [ ] Load balancing and Auto Scaling
-- [ ] RDS and database infrastructure
-- [ ] CloudWatch and monitoring
-- [ ] Docker and containers
-- [ ] Python automation
-- [ ] Cloud security
+- [ ] Load Balancing and Auto Scaling
+- [ ] RDS and Database Infrastructure
+- [ ] CloudWatch and Monitoring
+- [ ] Docker and Containers
+- [ ] Python Automation
+- [ ] Cloud Security
 
 </details>
 
@@ -258,10 +285,10 @@ An interactive quiz platform using AI to support quiz generation and learning ex
 
 - [ ] Infrastructure as Code
 - [ ] Terraform
-- [ ] CI/CD pipelines
-- [ ] Serverless architecture
-- [ ] Kubernetes fundamentals
-- [ ] Distributed systems
+- [ ] CI/CD Pipelines
+- [ ] Serverless Architecture
+- [ ] Kubernetes Fundamentals
+- [ ] Distributed Systems
 
 </details>
 
@@ -269,15 +296,19 @@ An interactive quiz platform using AI to support quiz generation and learning ex
 
 <a id="stats"></a>
 
-## ◈ 05 — GitHub Analytics
+## ◈ 06 — GitHub Analytics
 
 <p align="center">
-  <img height="170"
-    src="https://github-readme-stats.vercel.app/api?username=chaladitulasiram&show_icons=true&hide_border=true&bg_color=0B1020&title_color=A9C8FF&icon_color=8AB4FF&text_color=E6EDF7&ring_color=8AB4FF"
-    alt="GitHub statistics"/>
-  <img height="170"
-    src="https://github-readme-stats.vercel.app/api/top-langs/?username=chaladitulasiram&layout=compact&hide_border=true&bg_color=0B1020&title_color=A9C8FF&text_color=E6EDF7&langs_count=6"
-    alt="Most used languages"/>
+  <a href="https://github.com/chaladitulasiram">
+    <img height="170"
+      src="https://github-readme-stats.vercel.app/api?username=chaladitulasiram&show_icons=true&hide_border=true&bg_color=0B1020&title_color=A9C8FF&icon_color=8AB4FF&text_color=E6EDF7&ring_color=8AB4FF"
+      alt="GitHub statistics"/>
+  </a>
+  <a href="https://github.com/chaladitulasiram">
+    <img height="170"
+      src="https://github-readme-stats.vercel.app/api/top-langs/?username=chaladitulasiram&layout=compact&hide_border=true&bg_color=0B1020&title_color=A9C8FF&text_color=E6EDF7&langs_count=6"
+      alt="Most used programming languages"/>
+  </a>
 </p>
 
 ### Contribution Activity
@@ -292,17 +323,14 @@ An interactive quiz platform using AI to support quiz generation and learning ex
 
 <a id="connect"></a>
 
-## ◈ 06 — Connect With Me
+## ◈ 07 — Connect With Me
 
 <p align="center">
   <a href="https://github.com/chaladitulasiram">
-    <img src="https://img.shields.io/badge/GITHUB-101827?style=for-the-badge&logo=github&logoColor=white"/>
+    <img src="https://img.shields.io/badge/GITHUB-101827?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"/>
   </a>
-  <a href="YOUR_LINKEDIN_URL">
-    <img src="https://img.shields.io/badge/LINKEDIN-101827?style=for-the-badge&logo=linkedin&logoColor=8AB4FF"/>
-  </a>
-  <a href="YOUR_PORTFOLIO_URL">
-    <img src="https://img.shields.io/badge/PORTFOLIO-101827?style=for-the-badge&logo=safari&logoColor=8AB4FF"/>
+  <a href="https://www.linkedin.com/in/tulasiram22/">
+    <img src="https://img.shields.io/badge/LINKEDIN-101827?style=for-the-badge&logo=linkedin&logoColor=8AB4FF" alt="LinkedIn"/>
   </a>
 </p>
 
@@ -313,7 +341,7 @@ An interactive quiz platform using AI to support quiz generation and learning ex
 </p>
 
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&height=120&color=0:416D9D,100:080B14&section=footer" width="100%" alt="Footer"/>
+  <img src="https://capsule-render.vercel.app/api?type=waving&height=120&color=0:416D9D,100:080B14&section=footer" width="100%" alt="Decorative footer"/>
 </p>
 
 <p align="center">
