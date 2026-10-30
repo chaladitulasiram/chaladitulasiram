@@ -33,7 +33,7 @@
   <a href="https://github.com/chaladitulasiram?tab=repositories">
     <img src="https://img.shields.io/badge/EXPLORE%20PROJECTS-17243A?style=for-the-badge&logo=github&logoColor=white"/>
   </a>
-  <a href="YOUR_LINKEDIN_URL">
+  <a href="https://www.linkedin.com/in/tulasiram22/">
     <img src="https://img.shields.io/badge/LET'S%20CONNECT-17243A?style=for-the-badge&logo=linkedin&logoColor=A9C8FF"/>
   </a>
 </p>
