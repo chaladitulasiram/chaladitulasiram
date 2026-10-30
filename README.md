@@ -237,9 +237,7 @@ An interactive quiz platform using AI to support quiz generation and learning ex
 
 <!-- AUTO-PROJECTS:START -->
 
-<p align="center">
-  <i>New portfolio projects will automatically appear here.</i>
-</p>
+_No repositories tagged with `portfolio` yet._
 
 <!-- AUTO-PROJECTS:END -->
 
