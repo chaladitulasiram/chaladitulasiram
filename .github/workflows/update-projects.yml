@@ -3,7 +3,6 @@ name: Automatically Update GitHub Profile
 
 on:
   schedule:
-    # Refresh every six hours
     - cron: "17 */6 * * *"
 
   workflow_dispatch:
@@ -34,7 +33,35 @@ jobs:
             const owner = 'chaladitulasiram';
             const readmePath = 'README.md';
 
-            // Find public repositories tagged portfolio
+            // Exact README markers
+            const startMarker = '<!-- AUTO-PROJECTS:START -->';
+            const endMarker = '<!-- AUTO-PROJECTS:END -->';
+
+            // Read README
+            const original = fs.readFileSync(
+              readmePath,
+              'utf8'
+            );
+
+            // Find marker positions
+            const startIndex = original.indexOf(startMarker);
+            const endIndex = original.indexOf(endMarker);
+
+            // Validate markers
+            if (
+              startIndex === -1 ||
+              endIndex === -1 ||
+              endIndex < startIndex + startMarker.length
+            ) {
+              core.setFailed(
+                'README markers missing or incorrectly ordered. Check README.md on main.'
+              );
+              return;
+            }
+
+            core.info('README markers verified successfully.');
+
+            // Discover portfolio repositories
             const response = await github.rest.search.repos({
               q: `user:${owner} topic:portfolio fork:false`,
               sort: 'updated',
@@ -51,6 +78,11 @@ jobs:
               )
               .slice(0, 12);
 
+            core.info(
+              `Found ${repositories.length} portfolio repositories.`
+            );
+
+            // Escape generated HTML content
             function escapeHtml(value) {
               return String(value || '')
                 .replace(/&/g, '&amp;')
@@ -59,62 +91,63 @@ jobs:
                 .replace(/"/g, '&quot;');
             }
 
+            // Generate project cards
             const cards = repositories.map(repo => {
               const name = escapeHtml(repo.name);
+
               const description = escapeHtml(
                 repo.description || 'Project description coming soon.'
               );
+
               const language = escapeHtml(
                 repo.language || 'Not specified'
               );
+
               const stars = repo.stargazers_count;
+
               const updated = new Date(
                 repo.pushed_at || repo.updated_at
               ).toISOString().slice(0, 10);
 
               return [
-                `<details>`,
+                '<details>',
                 `<summary><strong>${name}</strong> — ${language} · ★ ${stars}</summary>`,
                 '',
                 description,
                 '',
                 `[Explore Repository](${repo.html_url}) · Last updated: ${updated}`,
                 '',
-                `</details>`
+                '</details>'
               ].join('\n');
             }).join('\n\n');
 
             const generatedContent = cards ||
               '_No repositories tagged with `portfolio` yet._';
 
-            const start = '<!-- AUTO-PROJECTS:START -->';
-            const end = '<!-- AUTO-PROJECTS:END -->';
+            // Replace content between markers
+            const before = original.slice(
+              0,
+              startIndex + startMarker.length
+            );
 
-            const original = fs.readFileSync(
+            const after = original.slice(endIndex);
+
+            const updatedReadme = [
+              before,
+              '',
+              generatedContent,
+              '',
+              after
+            ].join('\n');
+
+            // Write updated README
+            fs.writeFileSync(
               readmePath,
+              updatedReadme,
               'utf8'
             );
 
-            if (
-              !original.includes(start) ||
-              !original.includes(end)
-            ) {
-              core.setFailed(
-                'Automatic project section markers are missing.'
-              );
-              return;
-            }
-
-            const updated = original.replace(
-              /<!-- AUTO-PROJECTS:START -->[\s\S]*?<!-- AUTO-PROJECTS:END -->/,
-              `${start}\n\n${generatedContent}\n\n${end}`
-            );
-
-            fs.writeFileSync(readmePath, updated);
-
-            core.info(
-              `Discovered ${repositories.length} portfolio repositories.`
-            );
+            core.info('README project section generated successfully.');
 
       - name: Commit profile updates
         run: |
@@ -124,7 +157,7 @@ jobs:
           git add README.md
 
           if git diff --cached --quiet; then
-            echo "Profile already up to date."
+            echo "No profile changes detected."
           else
             git commit -m "chore: automatically update project showcase"
             git push
