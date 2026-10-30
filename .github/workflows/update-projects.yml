@@ -1,0 +1,131 @@
+
+name: Automatically Update GitHub Profile
+
+on:
+  schedule:
+    # Refresh every six hours
+    - cron: "17 */6 * * *"
+
+  workflow_dispatch:
+
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/update-projects.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  update-profile:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout profile repository
+        uses: actions/checkout@v4
+
+      - name: Discover and generate projects
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+
+            const owner = 'chaladitulasiram';
+            const readmePath = 'README.md';
+
+            // Find public repositories tagged portfolio
+            const response = await github.rest.search.repos({
+              q: `user:${owner} topic:portfolio fork:false`,
+              sort: 'updated',
+              order: 'desc',
+              per_page: 100
+            });
+
+            const repositories = response.data.items
+              .filter(repo =>
+                repo.owner.login.toLowerCase() === owner &&
+                !repo.fork &&
+                !repo.archived &&
+                repo.name.toLowerCase() !== owner
+              )
+              .slice(0, 12);
+
+            function escapeHtml(value) {
+              return String(value || '')
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;');
+            }
+
+            const cards = repositories.map(repo => {
+              const name = escapeHtml(repo.name);
+              const description = escapeHtml(
+                repo.description || 'Project description coming soon.'
+              );
+              const language = escapeHtml(
+                repo.language || 'Not specified'
+              );
+              const stars = repo.stargazers_count;
+              const updated = new Date(
+                repo.pushed_at || repo.updated_at
+              ).toISOString().slice(0, 10);
+
+              return [
+                `<details>`,
+                `<summary><strong>${name}</strong> — ${language} · ★ ${stars}</summary>`,
+                '',
+                description,
+                '',
+                `[Explore Repository](${repo.html_url}) · Last updated: ${updated}`,
+                '',
+                `</details>`
+              ].join('\n');
+            }).join('\n\n');
+
+            const generatedContent = cards ||
+              '_No repositories tagged with `portfolio` yet._';
+
+            const start = '<!-- AUTO-PROJECTS:START -->';
+            const end = '<!-- AUTO-PROJECTS:END -->';
+
+            const original = fs.readFileSync(
+              readmePath,
+              'utf8'
+            );
+
+            if (
+              !original.includes(start) ||
+              !original.includes(end)
+            ) {
+              core.setFailed(
+                'Automatic project section markers are missing.'
+              );
+              return;
+            }
+
+            const updated = original.replace(
+              /<!-- AUTO-PROJECTS:START -->[\s\S]*?<!-- AUTO-PROJECTS:END -->/,
+              `${start}\n\n${generatedContent}\n\n${end}`
+            );
+
+            fs.writeFileSync(readmePath, updated);
+
+            core.info(
+              `Discovered ${repositories.length} portfolio repositories.`
+            );
+
+      - name: Commit profile updates
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add README.md
+
+          if git diff --cached --quiet; then
+            echo "Profile already up to date."
+          else
+            git commit -m "chore: automatically update project showcase"
+            git push
+          fi
