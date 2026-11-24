@@ -148,6 +148,12 @@ Java, Python, Spring Boot and REST APIs.
   <i>Selected projects demonstrating my engineering interests and practical experience.</i>
 </p>
 
+<!-- AUTO-PROJECTS:START -->
+
+_No repositories tagged with `portfolio` yet._
+
+<!-- AUTO-PROJECTS:END -->
+
 <table>
 <tr>
 <td width="50%" valign="top">
